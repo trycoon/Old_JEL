@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<custom:UserTabClass xmlns:custom="jel.ui.admin.*" xmlns:mx="http://www.adobe.com/2006/mxml" label="Users" width="100%" height="100%">
+	<mx:Panel layout="absolute" title="User" left="182" right="10" top="10" bottom="40">
+		<mx:Label text="Username" left="10" top="10"/>
+		<mx:TextInput maxChars="20" left="10" top="27" right="310" cornerRadius="4" borderStyle="solid" id="usernameTextInput"/>
+		<mx:Label text="First name" left="10" top="57"/>
+		<mx:TextInput width="118" maxChars="30" cornerRadius="4" borderStyle="solid" id="firstnameTextInput" top="74" left="10"/>
+		<mx:Label text="Last name" left="136" top="57"/>
+		<mx:TextInput width="120" maxChars="30" cornerRadius="4" borderStyle="solid" id="lastnameTextInput" top="74" left="136"/>
+		<mx:Label text="Description" top="104" left="10"/>
+		<mx:TextArea height="68" maxChars="2048" top="121" left="10" right="310" cornerRadius="4" borderStyle="solid" id="descriptionTextArea"/>
+		<mx:Label text="Password" left="10" top="197"/>
+		<mx:TextInput maxChars="20" left="10" right="438" top="214" displayAsPassword="true" cornerRadius="4" borderStyle="solid" id="passwordTextInput"/>
+		<mx:Label text="Repeat password" left="136" top="197"/>
+		<mx:TextInput maxChars="20" left="136" right="310" top="214" displayAsPassword="true" cornerRadius="4" borderStyle="solid" id="repeatPasswordTextInput"/>
+		<mx:CheckBox label="User disabled" top="244" left="10" id="userDisabledCheckBox"/>
+		<mx:Button label="Save" bottom="10" id="saveButton" height="22" left="115"/>
+		<mx:VRule horizontalCenter="0" top="10" bottom="10"/>
+		<mx:Label text="Information" textAlign="center" fontSize="11" fontWeight="bold" top="8" right="98"/>
+		<mx:Label text="Created:" top="57" left="292"/>
+		<mx:Label top="57" left="346" right="89" bottom="617" id="createdTimeLabel"/>
+		<mx:Canvas left="292" right="10" top="104" bottom="10">
+			<mx:DataGrid right="0" left="0" bottom="0" top="0" id="userEventDataGrid">
+				<mx:columns>
+					<mx:DataGridColumn headerText="Date" dataField="col1" textAlign="center"/>
+					<mx:DataGridColumn headerText="Status" dataField="col2" textAlign="center"/>
+				</mx:columns>
+			</mx:DataGrid>
+		</mx:Canvas>
+	</mx:Panel>
+	<mx:Button label="Add" bottom="10" left="10" id="addButton"/>
+	<mx:Button label="Remove" bottom="10" left="92" id="removeButton"/>
+	<mx:List top="10" left="10" bottom="40" right="604" cornerRadius="4" id="userList"></mx:List>
+</custom:UserTabClass>

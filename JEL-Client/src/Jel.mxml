@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<custom:JelClass xmlns:custom="jel.ui.*" xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" horizontalAlign="left" verticalAlign="top" borderStyle="none" cornerRadius="0">
+	<mx:Canvas left="0" right="0" top="0" height="48" id="pageHeaderCanvas">
+		<mx:MenuBar height="48" right="0" left="0" top="0" cornerRadius="4"><mx:filters><mx:DropShadowFilter /></mx:filters></mx:MenuBar>
+		<mx:Label text="Sites" top="0" left="141" width="32" id="sitesTextLabel"/>
+		<mx:TextInput width="85" right="167" top="18" cornerRadius="4" borderStyle="solid" maxChars="20" id="usernameTextInput" toolTip="Enter username, case-sensetive"/>
+		<mx:TextInput width="85" right="74" top="18" cornerRadius="4" displayAsPassword="true" maxChars="20" borderStyle="solid" id="passwordTextInput" toolTip="Enter password, case-sensetive"/>
+		<mx:Button label="Login" right="10" top="18" id="loginButton"/>
+		<mx:Label text="Username" top="0" right="190" id="usernameTextLabel"/>
+		<mx:Label text="Password" right="103" top="0" height="18" id="passwordTextLabel"/>
+		<mx:ComboBox top="18" left="10" width="280" id="sitesComboBox" toolTip="Available sites to view">
+		</mx:ComboBox>
+		<mx:Button label="Admin" top="18" left="298" id="adminButton" visible="false" toolTip="To administrate sites, users, hardware and more"/>
+		<mx:Label top="20" id="loggedInUserLabel" visible="false" color="#0F7C00" right="81" fontSize="11" toolTip="Current logged on user"/>
+	</mx:Canvas>
+	<mx:Canvas left="0" right="0" top="48" bottom="20" id="desktopCanvas">	
+	</mx:Canvas>
+	<mx:Canvas left="0" right="0" height="20" bottom="0" id="pageFooterCanvas">
+		<mx:MenuBar height="20" left="0" right="0" bottom="0"><mx:filters><mx:DropShadowFilter /></mx:filters></mx:MenuBar>
+		<mx:Label left="10" bottom="0" id="statusLabel" width="788"/>
+		<mx:Label width="130" bottom="0" right="10" id="serverTimeLabel" toolTip="Local time on server"/>
+		<mx:Label text="Servertime:" bottom="0" right="138" toolTip="Local time on server"/>
+		<mx:VRule height="19" bottom="0" right="216" strokeColor="#575A5A"/>
+	</mx:Canvas>
+</custom:JelClass>
+<!-- http://blog.flexexamples.com/2007/12/31/changing-the-close-button-skin-on-a-flex-titlewindow-container/ -->

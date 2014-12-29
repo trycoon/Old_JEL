@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<custom:SitesTabClass xmlns:custom="jel.ui.admin.*" xmlns:mx="http://www.adobe.com/2006/mxml" label="Sites" width="100%" height="100%">
+	<mx:Panel layout="absolute" title="Site" left="182" right="10" top="10" bottom="40" id="panel1">
+		<mx:Label text="Name" left="10" top="10"/>
+		<mx:TextInput maxChars="50" left="10" top="27" right="310" borderStyle="solid" cornerRadius="4" id="nameTextInput"/>
+		<mx:Label text="Description" top="57" left="10"/>
+		<mx:TextArea height="68" maxChars="2048" top="74" left="10" right="310" borderStyle="solid" cornerRadius="4" id="descriptionTextArea"/>
+		<mx:Label text="Width" top="150" left="10"/>
+		<mx:NumericStepper minimum="640" maximum="32000" value="1024" left="10" top="167" stepSize="1" id="widthNumericStepper"/>
+		<mx:Label text="Height" top="150" left="97"/>
+		<mx:NumericStepper value="768" minimum="480" maximum="32000" left="97" top="167" stepSize="1" id="heightNumericStepper"/>
+		<mx:ColorPicker top="197" left="10" id="backgroundColorPicker"/>
+		<mx:Label text="Background color" top="197" left="40"/>
+		<mx:Label x="10" y="227" text="Background image"/>
+		<mx:VBox id="imageVBox" borderStyle="solid" top="253" left="10">
+			<mx:Image id="backgroundImage" maintainAspectRatio="false" width="64" height="64"/>
+	    </mx:VBox>
+		<mx:Button label="Browse" top="253" left="82" id="imageBrowseButton"/>
+		<mx:Button label="None" width="68" top="253" left="155" id="imageNoneButton"/>
+		<mx:CheckBox label="Repeat X" top="283" left="82" id="imageRepeatXCheckBox"/>
+		<mx:CheckBox label="Repeat Y" top="283" left="166" id="imageRepeatYCheckBox"/>
+		<mx:CheckBox label="Allow anonymous users" top="325" left="10" id="anonymousUsersCheckBox"/>
+		<mx:Button label="Users" left="10" top="355" id="usersButton"/>
+		<mx:Button label="Save" bottom="10" id="saveButton" left="115"/>		
+		<mx:VRule horizontalCenter="0" top="10" bottom="10"/>
+		<mx:Label text="Information" textAlign="center" fontSize="11" fontWeight="bold" top="8" right="98"/>
+		<mx:Label text="Total visitors:" width="82" left="292" top="75"/>
+		<mx:Label x="371" y="75" width="60" textAlign="right" id="totalVisitorsLabel"/>		
+		<mx:Label text="Created:" top="57" left="292"/>
+		<mx:Label top="57" left="344" right="23" bottom="617" id="createdTimeLabel"/>
+	</mx:Panel>
+	<mx:Button label="Add" bottom="10" left="10" id="addButton"/>
+	<mx:Button label="Remove" bottom="10" left="92" id="removeButton"/>
+	<mx:List top="10" left="10" bottom="40" right="604" cornerRadius="4" id="siteList"></mx:List>
+</custom:SitesTabClass>

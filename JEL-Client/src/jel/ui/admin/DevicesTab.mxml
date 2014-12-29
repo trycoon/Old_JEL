@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<custom:DevicesTabClass xmlns:custom="jel.ui.admin.*" xmlns:mx="http://www.adobe.com/2006/mxml" label="Devices" width="100%" height="100%">
+	<mx:HDividedBox label="Devices" width="100%" height="100%">
+			<mx:Canvas width="231" height="100%">
+				<mx:Tree left="10" right="0" top="37" bottom="40"></mx:Tree>
+				<mx:Button label="Add" left="10" bottom="10" height="22"/>
+				<mx:Button label="Remove" bottom="10" height="22" right="10"/>
+				<mx:Label text="Devices bound to sites" fontWeight="bold" textAlign="center" fontSize="11" horizontalCenter="0" top="10"/>
+			</mx:Canvas>
+			<mx:Canvas width="509" height="100%">
+				<mx:Panel layout="absolute" left="0" right="10" bottom="10" top="10" title="Device" fontWeight="normal">
+					<mx:Label text="Model" top="10" left="10"/>
+					<mx:Label text="Status" top="36" left="10"/>
+					<mx:Label text="HWID" top="64" left="11"/>
+					<mx:Label text="Description" left="10" top="137"/>
+					<mx:TextArea height="90" cornerRadius="4" left="10" top="154" maxChars="200" width="298"/>
+					<mx:CheckBox label="Invert values" top="368" left="10" width="104"/>
+					<mx:NumericStepper minimum="10" stepSize="10" maximum="604800000" value="10000" top="338" left="10" width="90"/>
+					<mx:Label text="Sampledelay(ms)" top="321" left="10" width="104"/>
+					<mx:Label text="Samples/entry" top="321" left="122" width="86"/>
+					<mx:NumericStepper minimum="1" maximum="100" stepSize="1" top="338" left="122" width="65"/>
+					<mx:Label text="Adjustments" top="321" left="216" width="79"/>
+					<mx:TextInput text="=i" enabled="false" top="338" left="216" maxChars="50" width="222"/>
+					<mx:ComboBox top="176" left="316" width="160"></mx:ComboBox>
+					<mx:Button label="Save" bottom="10" horizontalCenter="0"/>
+					<mx:Label text="Visualtype" top="155" left="316" width="62"/>
+					<mx:Label text="Name" left="10" top="90"/>
+					<mx:TextInput maxChars="20" left="10" top="107" right="309" borderStyle="solid" cornerRadius="4"/>
+					<mx:Label x="61" y="10" width="127"/>
+					<mx:Label x="61" y="36" width="127"/>
+					<mx:Label x="61" y="64" width="168"/>
+					<mx:RadioButtonGroup id="radiogroup1"/>
+					<mx:RadioButton label="Input" groupName="radiogroup1" top="252" left="104" width="55"/>
+					<mx:RadioButton label="Output" groupName="radiogroup1" top="252" left="167" width="63"/>
+					<mx:Label text="Use device for" fontWeight="bold" fontSize="10" top="254" left="10" width="86"/>
+					<mx:Label text="Options" fontWeight="bold" fontSize="10" top="295" left="10" width="86"/>
+					<mx:HRule height="5" top="282" left="0" right="20"/>
+					<mx:Button label="Info" height="18" left="196" top="10"/>
+				</mx:Panel>
+			</mx:Canvas>
+	</mx:HDividedBox>			
+</custom:DevicesTabClass>

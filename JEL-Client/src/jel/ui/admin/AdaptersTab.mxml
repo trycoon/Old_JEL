@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<custom:AdapterTabClass xmlns:custom="jel.ui.admin.*" xmlns:mx="http://www.adobe.com/2006/mxml" label="Adapters" width="100%" height="100%">
+	<mx:DataGrid right="10" left="10" top="10" bottom="66" id="adapterDataGrid">
+				<mx:columns>
+					<mx:DataGridColumn headerText="Name" dataField="name" textAlign="left"/>
+					<mx:DataGridColumn headerText="Port" dataField="selectedPort" textAlign="left"/>
+					<mx:DataGridColumn headerText="Version" dataField="version" textAlign="center" width="80"/>
+					<mx:DataGridColumn headerText="Status" dataField="isPressent" textAlign="center" width="120">
+						<mx:itemRenderer>
+							<mx:Component>
+                    			<mx:Label paddingLeft="2">
+			                        <mx:Script>
+			                        <![CDATA[
+			                            override public function set data( value:Object ) : void {
+			                                super.data = value;
+			                                if( data.isPressent ) 
+			                                {
+			                                	text = "Active";
+			                                	setStyle("color", 0x00CC00);
+			                                }
+			                                else
+			                                {
+			                                	text = "Not pressent";
+			                                	setStyle("color", 0xCC0000);
+			                                } 
+			                            }
+			                        ]]>
+			                        </mx:Script>
+                    			</mx:Label>
+                			</mx:Component>
+						</mx:itemRenderer>
+					</mx:DataGridColumn>
+				</mx:columns>
+	</mx:DataGrid>
+	<mx:ComboBox left="10" bottom="10" height="22" id="adaptersComboBox" width="160"></mx:ComboBox>
+	<mx:ComboBox left="178" bottom="10" height="22" width="180" id="portsComboBox"></mx:ComboBox>
+	<mx:Button label="Add" left="366" bottom="10" height="22" id="addAdapterButton"/>
+	<mx:Label text="Available adapters" left="10" bottom="40" height="18"/>
+	<mx:Label text="Available ports" left="178" bottom="40" height="18"/>
+	<mx:Button label="Remove" left="423" bottom="10" height="22" id="removeAdapterButton"/>
+</custom:AdapterTabClass>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<custom:AdminDialogClass xmlns:custom="jel.ui.admin.*"  xmlns:mx="http://www.adobe.com/2006/mxml" x="0" y="0" width="812" height="640" layout="absolute" title="Administration" showCloseButton="true" roundedBottomCorners="true">
+	<mx:TabNavigator left="2" right="8" top="4" bottom="7" id="tabsTabNavigator">
+		<custom:UsersTab label="Users" width="100%" height="100%"/>
+		<custom:SitesTab label="Sites" width="100%" height="100%"/>
+		<custom:AdaptersTab label="Adapters" width="100%" height="100%"/>
+		<custom:DevicesTab label="Devices" width="100%" height="100%"/>
+		<custom:SystemTab label="System" width="100%" height="100%"/>			
+	</mx:TabNavigator>
+</custom:AdminDialogClass>

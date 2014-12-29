@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<custom:SiteUsersDialogClass xmlns:custom="jel.ui.admin.*" xmlns:mx="http://www.adobe.com/2006/mxml" x="0" y="0" width="460" height="600" layout="absolute" title="Site users" showCloseButton="true" cornerRadius="8">
+	<mx:Label text="Available users" top="10" left="72" fontWeight="bold"/>
+	<mx:Label text="Site users" top="10" left="292" fontWeight="bold"/>
+	<mx:List width="205" height="419" top="36" left="10" cornerRadius="4" id="availableUsersList"></mx:List>
+	<mx:List width="205" height="381" cornerRadius="4" top="36" left="225" id="siteUsersList"></mx:List>
+	<mx:Button label="Add" left="223" top="425" id="addUserButton" toolTip="Add user to site"/>
+	<mx:Button label="Remove" left="280" top="425" id="removeUserButton" toolTip="Remove user from site"/>
+	<mx:CheckBox label="Administrator" height="22" top="455" left="223" id="administratorCheckBox"/>
+	<mx:Button label="Save" left="154" width="61" bottom="10" height="22" id="saveButton" toolTip="Save changes and exit"/>
+	<mx:Button label="Close" left="223" bottom="10" height="22" id="closeButton" toolTip="Abort changes"/>	
+</custom:SiteUsersDialogClass>

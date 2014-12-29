@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<custom:AddDeviceDialogClass xmlns:custom="jel.ui.admin.*" xmlns:mx="http://www.adobe.com/2006/mxml" width="500" height="545" title="Add device" showCloseButton="true">
+	
+</custom:AddDeviceDialogClass>

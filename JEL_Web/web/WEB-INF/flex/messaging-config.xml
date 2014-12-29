@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service id="message-service" 
+         class="flex.messaging.services.MessageService">
+    <adapters>
+        <adapter-definition id="JelStreamingAdapter" class="jel.facade.JelStreamingAdapter" default="true" />
+    </adapters>
+
+    <default-channels>
+        <channel ref="jel-streaming-amf"/>
+    </default-channels>
+
+    <destination id="jelStreamingService">
+        <properties>
+            <server>
+                <message-time-to-live>0</message-time-to-live>
+            </server>
+        </properties>
+        <adapter ref="JelStreamingAdapter"/>
+    </destination>
+</service>

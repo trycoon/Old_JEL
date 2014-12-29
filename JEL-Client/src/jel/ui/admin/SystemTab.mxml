@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<custom:SystemTabClass xmlns:custom="jel.ui.admin.*" xmlns:mx="http://www.adobe.com/2006/mxml" label="System" width="100%" height="100%">
+	<mx:Label text="Client information" left="10" top="10"/>
+	<mx:Label text="Server information" left="10" bottom="295" height="18"/>
+	<mx:TextArea editable="false" left="10" top="36" bottom="321" right="10" id="clientInfoTextArea"/>
+	<mx:TextArea editable="false" left="10" top="269" bottom="40" right="10" id="serverInfoTextArea"/>
+	<mx:Button label="Restart" bottom="10" left="10" enabled="false" id="restartButton"/>
+	<mx:Button label="Upgrade" bottom="10" left="87" enabled="false" id="upgradeButton"/>
+	<mx:Button label="Upgrade" bottom="10" left="87" enabled="false" id="upgradeButton0"/>
+	<mx:Button label="Backup" id="backupButton" bottom="10" left="169" enabled="false" toolTip="Backup database"/>
+	<mx:Button label="Restore" id="restoreButton" bottom="10" left="245" enabled="false" toolTip="Restore database from backup"/>
+</custom:SystemTabClass>

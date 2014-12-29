@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://xml.jel.com/schema/JelHardware"
+    xmlns:tns="http://xml.jel.com/schema/JelHardware"
+    elementFormDefault="unqualified">
+    <xsd:element name="JelHardware">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="adapters" form="unqualified">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="adapter" minOccurs="0" maxOccurs="unbounded" form="unqualified">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="parameter" minOccurs="0" maxOccurs="unbounded" type="xsd:string" form="unqualified"/>
+                                    </xsd:sequence>
+                                    <xsd:attribute name="name" type="xsd:string" use="required"/>
+                                    <xsd:attribute name="type" type="xsd:string" use="required"/>
+                                    <xsd:attribute name="port" type="xsd:string" use="required"/>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+            <xsd:attribute name="version" type="xsd:string" fixed="1.0" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:lang="http://www.springframework.org/schema/lang"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+       http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+       http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-2.0.xsd">
+    
+    
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+          p:location="/WEB-INF/jdbc.properties" />
+    
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+          p:driverClassName="${jdbc.driverClassName}"
+          p:url="${jdbc.url}"
+          p:username="${jdbc.username}"
+          p:password="${jdbc.password}" />    
+
+    <!--<bean id="txManager"
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <tx:annotation-driven transaction-manager="txManager" />-->
+
+
+
+    <bean id="storageManager" class="jel.storage.StorageManager" init-method="init" destroy-method="shutdown">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <bean id="eventlogManager" class="jel.eventlog.EventlogManager">
+        <property name="securityManager" ref="securityManager" />
+        <property name="storageManager" ref="storageManager" />
+    </bean>
+    
+    <bean id="hardwareManager" class="jel.hardware.HardwareManager" init-method="init" destroy-method="shutdown">
+        <property name="securityManager" ref="securityManager" />
+        <property name="storageManager" ref="storageManager" />
+        <property name="eventlogManager" ref="eventlogManager" />
+    </bean>
+    
+    <bean id="securityManager" class="jel.security.SecurityManager">
+        <property name="storageManager" ref="storageManager" />
+        <property name="eventlogManager" ref="eventlogManager" />
+    </bean>
+    
+    <bean id="siteManager" class="jel.site.SiteManager">
+        <property name="storageManager" ref="storageManager" />
+        <property name="securityManager" ref="securityManager" />
+    </bean>   
+    
+    <bean id="userManager" class="jel.user.UserManager">
+        <property name="storageManager" ref="storageManager" />
+        <property name="securityManager" ref="securityManager" />
+        <property name="eventlogManager" ref="eventlogManager" />
+    </bean>
+
+    <!-- Facadebean the serverinterface the clients talks to -->
+    <bean id="serverFacade" class="jel.facade.ServerFacade">
+        <property name="storageManager" ref="storageManager" />
+        <property name="eventlogManager" ref="eventlogManager" />
+        <property name="hardwareManager" ref="hardwareManager" />
+        <property name="securityManager" ref="securityManager" />
+        <property name="siteManager" ref="siteManager" />
+        <property name="userManager" ref="userManager" />
+    </bean>  
+
+</beans>

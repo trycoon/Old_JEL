@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : JelHardware.xml
+    Created on : den 26 februari 2009, 23:32
+    Author     : trycoon
+    Description:
+        Purpose of the document follows.
+-->
+
+<ns0:JelHardware  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+   xmlns:ns0='http://xml.jel.com/schema/JelHardware'
+   xsi:schemaLocation='http://xml.jel.com/schema/JelHardware JelHardware.xsd' version="1.0">
+    <adapters>
+        <adapter name="DS9097U" type="DS9097U" port="COM1" />
+        <adapter name="NetAdapter" type="NetAdapter" port="LIZARD:6161" />
+    </adapters>
+
+</ns0:JelHardware>

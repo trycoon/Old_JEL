@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <display-name>JEL</display-name>
+    <description>Java Environment Logger</description>
+
+    <!-- H2 Databaseengine setup begin -->
+    <context-param>
+        <param-name>db.url</param-name>
+        <!-- <param-value>jdbc:h2:~/JEL/DB/logDB;IGNORECASE=TRUE;CACHE_SIZE=32768;</param-value> --> <!-- Does not enable mixed-mode, no external tools could connect to the database at the same time. -->
+        <param-value>jdbc:h2:~/JEL/DB/logDB;IGNORECASE=TRUE;CACHE_SIZE=32768;AUTO_SERVER=TRUE;</param-value>
+    </context-param>
+    <context-param>
+        <param-name>db.user</param-name>
+        <param-value>jelusr</param-value>
+    </context-param>
+    <context-param>
+        <param-name>db.password</param-name>
+        <param-value>jelpass</param-value>
+    </context-param>
+    <context-param>
+        <param-name>db.tcpServer</param-name>
+        <param-value>-tcpAllowOthers</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.h2.server.web.DbStarter</listener-class>
+    </listener>
+    <!-- H2 Databaseengine setup end -->
+
+
+    <!-- Spring setup begin -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/applicationContext.xml</param-value>
+    </context-param>
+    <context-param>
+         <param-name>log4jConfigLocation</param-name>
+         <param-value>/WEB-INF/log4j.properties</param-value>
+    </context-param>
+    <context-param>
+         <param-name>log4jRefreshInterval</param-name>
+         <param-value>1000</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener>
+    <!-- Spring setup end -->
+
+    
+    <!-- BlazeDS begin -->
+    <listener>
+        <listener-class>flex.messaging.HttpFlexSession</listener-class>
+    </listener>
+    
+    <servlet>
+        <servlet-name>MessageBrokerServlet</servlet-name>
+        <servlet-class>flex.messaging.MessageBrokerServlet</servlet-class>
+        <init-param>
+            <param-name>services.configuration.file</param-name>
+            <param-value>/WEB-INF/flex/services-config.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MessageBrokerServlet</servlet-name>
+        <url-pattern>/messagebroker/*</url-pattern>
+    </servlet-mapping>
+    <!-- BlazeDS end -->
+    
+    
+    <welcome-file-list>
+        <welcome-file>WEB-INF/index.html</welcome-file>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+    
+</web-app>
